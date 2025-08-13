@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Muted Futuristic Color System */
+  
+  /* Primary Grays - Sophisticated Foundation */
+  --color-50: #fafbfc;    /* Pure, clean backgrounds */
+  --color-100: #f4f6f8;   /* Subtle surface variations */
+  --color-200: #e8edf2;   /* Gentle borders, dividers */
+  --color-300: #d1dce8;   /* Secondary elements */
+  --color-400: #a3b8cc;   /* Disabled, secondary text */
+  --color-500: #7a8fa3;   /* Body text, neutral */
+  --color-600: #5a6b7d;   /* Headings, emphasis */
+  --color-700: #435267;   /* Important text */
+  --color-800: #2d3a4a;   /* Primary headings */
+  --color-900: #1a2332;   /* Main headings */
+  --color-950: #0f1419;   /* Deepest backgrounds */
+  
+  /* Accent Colors - Strategic Highlights */
+  --accent-blue: #3b82f6;      /* Primary accent - trust, innovation */
+  --accent-blue-light: #60a5fa; /* Light accent - subtle highlights */
+  --accent-blue-dark: #2563eb;  /* Dark accent - emphasis */
+  
+  --accent-teal: #14b8a6;      /* Secondary accent - growth, balance */
+  --accent-teal-light: #2dd4bf; /* Light teal - success states */
+  --accent-teal-dark: #0d9488;  /* Dark teal - emphasis */
+  
+  /* Semantic Colors - Brand Consistency */
+  --success: #10b981;           /* Success states */
+  --success-light: #34d399;
+  --warning: #f59e0b;           /* Warning states */
+  --warning-light: #fbbf24;
+  --error: #ef4444;             /* Error states */
+  --error-light: #f87171;
+  
+  /* Depth & Shadow System */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Semantic Mappings */
+  --background: var(--color-50);
+  --foreground: var(--color-900);
+  --muted: var(--color-100);
+  --muted-foreground: var(--color-500);
+  --border: var(--color-200);
+  --input: var(--color-200);
+  --ring: var(--accent-blue);
+  --card: #ffffff;
+  --card-foreground: var(--color-900);
+  
+  /* Interactive States */
+  --primary: var(--accent-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-100);
+  --secondary-foreground: var(--color-700);
+  --accent: var(--accent-teal);
+  --accent-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode - Muted Futuristic */
+    --background: var(--color-950);
+    --foreground: var(--color-50);
+    --muted: var(--color-900);
+    --muted-foreground: var(--color-400);
+    --border: var(--color-800);
+    --input: var(--color-800);
+    --ring: var(--accent-blue-light);
+    --card: var(--color-900);
+    --card-foreground: var(--color-50);
+    
+    /* Dark mode accent adjustments */
+    --accent-blue: var(--accent-blue-light);
+    --accent-teal: var(--accent-teal-light);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
