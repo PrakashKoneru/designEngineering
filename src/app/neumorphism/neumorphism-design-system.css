@@ -1,0 +1,310 @@
+/* Neumorphism Soft Design System */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Neumorphism Base Colors */
+  --neuro-base: #e0e5ec;
+  --neuro-base-dark: #c8d0e0;
+  --neuro-base-light: #f8fafc;
+  
+  /* Shadow Colors */
+  --neuro-shadow-dark: #a3b1c6;
+  --neuro-shadow-light: #ffffff;
+  
+  /* Accent Colors */
+  --neuro-accent-blue: #3b82f6;
+  --neuro-accent-purple: #8b5cf6;
+  --neuro-accent-green: #10b981;
+  --neuro-accent-orange: #f59e0b;
+  
+  /* Text Colors */
+  --neuro-text-primary: #374151;
+  --neuro-text-secondary: #6b7280;
+  --neuro-text-muted: #9ca3af;
+  
+  /* Typography */
+  --neuro-font-size-xs: 0.75rem;
+  --neuro-font-size-sm: 0.875rem;
+  --neuro-font-size-base: 1rem;
+  --neuro-font-size-lg: 1.125rem;
+  --neuro-font-size-xl: 1.25rem;
+  --neuro-font-size-2xl: 1.5rem;
+  --neuro-font-size-3xl: 1.875rem;
+  --neuro-font-size-4xl: 2.25rem;
+  --neuro-font-size-5xl: 3rem;
+  
+  --neuro-font-weight-normal: 400;
+  --neuro-font-weight-medium: 500;
+  --neuro-font-weight-semibold: 600;
+  --neuro-font-weight-bold: 700;
+  
+  /* Spacing */
+  --neuro-spacing-1: 0.25rem;
+  --neuro-spacing-2: 0.5rem;
+  --neuro-spacing-3: 0.75rem;
+  --neuro-spacing-4: 1rem;
+  --neuro-spacing-6: 1.5rem;
+  --neuro-spacing-8: 2rem;
+  --neuro-spacing-10: 2.5rem;
+  --neuro-spacing-12: 3rem;
+  --neuro-spacing-16: 4rem;
+  
+  /* Neumorphism Shadows */
+  --neuro-shadow-raised: 
+    9px 9px 16px var(--neuro-shadow-dark),
+    -9px -9px 16px var(--neuro-shadow-light);
+  
+  --neuro-shadow-inset: 
+    inset 9px 9px 16px var(--neuro-shadow-dark),
+    inset -9px -9px 16px var(--neuro-shadow-light);
+  
+  --neuro-shadow-soft: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+  
+  --neuro-shadow-pressed: 
+    inset 6px 6px 12px var(--neuro-shadow-dark),
+    inset -6px -6px 12px var(--neuro-shadow-light);
+  
+  --neuro-shadow-floating: 
+    12px 12px 24px var(--neuro-shadow-dark),
+    -12px -12px 24px var(--neuro-shadow-light);
+}
+
+/* Layout Classes */
+.neuro-container {
+  min-height: 100vh;
+  background-color: var(--neuro-base);
+  padding: var(--neuro-spacing-8);
+}
+
+.neuro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.neuro-section {
+  margin-bottom: var(--neuro-spacing-16);
+}
+
+.neuro-grid {
+  display: grid;
+  gap: var(--neuro-spacing-8);
+}
+
+.neuro-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.neuro-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.neuro-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Typography Classes */
+.neuro-title {
+  font-size: var(--neuro-font-size-5xl);
+  font-weight: var(--neuro-font-weight-bold);
+  color: var(--neuro-text-primary);
+  text-align: center;
+  margin-bottom: var(--neuro-spacing-6);
+  text-shadow: 2px 2px 4px rgba(163, 177, 198, 0.3);
+}
+
+.neuro-subtitle {
+  font-size: var(--neuro-font-size-xl);
+  color: var(--neuro-text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--neuro-spacing-12);
+  line-height: 1.6;
+}
+
+.neuro-h2 {
+  font-size: var(--neuro-font-size-3xl);
+  font-weight: var(--neuro-font-weight-bold);
+  color: var(--neuro-text-primary);
+}
+
+.neuro-h3 {
+  font-size: var(--neuro-font-size-xl);
+  font-weight: var(--neuro-font-weight-semibold);
+  color: var(--neuro-text-primary);
+}
+
+.neuro-body {
+  font-size: var(--neuro-font-size-base);
+  color: var(--neuro-text-secondary);
+  line-height: 1.6;
+}
+
+/* Neumorphic Components */
+.neuro-raised {
+  background-color: var(--neuro-base);
+  border-radius: 1rem;
+  box-shadow: var(--neuro-shadow-raised);
+  border: none;
+}
+
+.neuro-inset {
+  background-color: var(--neuro-base);
+  border-radius: 1rem;
+  box-shadow: var(--neuro-shadow-inset);
+  border: none;
+}
+
+.neuro-soft {
+  background-color: var(--neuro-base);
+  border-radius: 0.75rem;
+  box-shadow: var(--neuro-shadow-soft);
+  border: none;
+}
+
+.neuro-floating {
+  background-color: var(--neuro-base);
+  border-radius: 1.5rem;
+  box-shadow: var(--neuro-shadow-floating);
+  border: none;
+}
+
+/* Card Components */
+.neuro-card {
+  padding: var(--neuro-spacing-8);
+  background-color: var(--neuro-base);
+  border-radius: 1rem;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 300ms ease;
+}
+
+.neuro-card:hover {
+  box-shadow: var(--neuro-shadow-floating);
+}
+
+.neuro-card-content {
+  text-align: center;
+}
+
+/* Button Components */
+.neuro-btn {
+  padding: var(--neuro-spacing-4) var(--neuro-spacing-6);
+  background-color: var(--neuro-base);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: var(--neuro-font-weight-medium);
+  color: var(--neuro-text-primary);
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: var(--neuro-shadow-soft);
+}
+
+.neuro-btn:hover {
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.neuro-btn:active {
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+.neuro-btn-accent-blue {
+  color: var(--neuro-accent-blue);
+  font-weight: var(--neuro-font-weight-semibold);
+}
+
+.neuro-btn-accent-purple {
+  color: var(--neuro-accent-purple);
+  font-weight: var(--neuro-font-weight-semibold);
+}
+
+/* Input Components */
+.neuro-input {
+  padding: var(--neuro-spacing-4);
+  background-color: var(--neuro-base);
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: var(--neuro-shadow-inset);
+  color: var(--neuro-text-primary);
+  font-size: var(--neuro-font-size-base);
+}
+
+.neuro-input:focus {
+  outline: none;
+  box-shadow: 
+    var(--neuro-shadow-inset),
+    0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Icon Components */
+.neuro-icon-container {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neuro-base);
+  border-radius: 50%;
+  box-shadow: var(--neuro-shadow-soft);
+  margin: 0 auto var(--neuro-spacing-4);
+}
+
+.neuro-icon-large {
+  width: 6rem;
+  height: 6rem;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+/* Progress Components */
+.neuro-progress-track {
+  width: 100%;
+  height: 0.75rem;
+  background-color: var(--neuro-base);
+  border-radius: 0.375rem;
+  box-shadow: var(--neuro-shadow-inset);
+  overflow: hidden;
+}
+
+.neuro-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neuro-accent-blue), var(--neuro-accent-purple));
+  border-radius: 0.375rem;
+  transition: width 300ms ease;
+}
+
+/* Toggle Components */
+.neuro-toggle {
+  width: 3rem;
+  height: 1.5rem;
+  background-color: var(--neuro-base);
+  border-radius: 0.75rem;
+  box-shadow: var(--neuro-shadow-inset);
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.neuro-toggle-handle {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--neuro-base);
+  border-radius: 50%;
+  box-shadow: var(--neuro-shadow-soft);
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  transition: all 200ms ease;
+}
+
+.neuro-toggle.active .neuro-toggle-handle {
+  transform: translateX(1.5rem);
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+/* Utility Classes */
+.neuro-text-center { text-align: center; }
+.neuro-mb-4 { margin-bottom: var(--neuro-spacing-4); }
+.neuro-mb-6 { margin-bottom: var(--neuro-spacing-6); }
+.neuro-mb-8 { margin-bottom: var(--neuro-spacing-8); }
+.neuro-mt-4 { margin-top: var(--neuro-spacing-4); }
+.neuro-mt-6 { margin-top: var(--neuro-spacing-6); }

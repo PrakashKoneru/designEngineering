@@ -1,0 +1,304 @@
+/* Mars Design System - Complete Tokens */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Colors */
+  --mars-red-primary: #8B2635;
+  --mars-red-secondary: #B22222;
+  --mars-red-tertiary: #CD5C5C;
+  --mars-red-light: #A0522D;
+  --mars-red-dark: #800020;
+  
+  --mars-orange-primary: #f97316;
+  --mars-orange-secondary: #ea580c;
+  --mars-orange-tertiary: #CD853F;
+  --mars-orange-light: #F4A460;
+  --mars-orange-accent: #B87333;
+  --mars-orange-glow: #FFBF00;
+  
+  --mars-blue-primary: #2F4F4F;
+  --mars-blue-secondary: #4682B4;
+  --mars-blue-tertiary: #708090;
+  --mars-blue-dark: #191970;
+  --mars-blue-accent: #00CED1;
+  --mars-blue-light: #87CEEB;
+  
+  --mars-neutral-black: #0F0F0F;
+  --mars-neutral-gray: #36454F;
+  
+  /* Typography */
+  --mars-font-size-hero-mobile: 2.25rem;
+  --mars-font-size-hero-tablet: 3.75rem;
+  --mars-font-size-hero-desktop: 6rem;
+  
+  --mars-font-size-subtitle-mobile: 1.125rem;
+  --mars-font-size-subtitle-tablet: 1.25rem;
+  --mars-font-size-subtitle-desktop: 1.5rem;
+  
+  --mars-font-size-h1: 3rem;
+  --mars-font-size-h2: 1.875rem;
+  --mars-font-size-h3: 1.25rem;
+  --mars-font-size-h4: 1.125rem;
+  
+  --mars-font-size-body-large: 1.125rem;
+  --mars-font-size-body-medium: 1rem;
+  --mars-font-size-body-small: 0.875rem;
+  
+  --mars-font-weight-bold: 700;
+  --mars-font-weight-semibold: 600;
+  --mars-font-weight-medium: 500;
+  --mars-font-weight-normal: 400;
+  
+  /* Spacing */
+  --mars-spacing-hero-mobile: 1.5rem;
+  --mars-spacing-hero-tablet: 2rem;
+  --mars-spacing-subtitle-mobile: 1rem;
+  --mars-spacing-subtitle-tablet: 1.5rem;
+  --mars-spacing-subtitle-desktop: 2rem;
+  --mars-spacing-standard: 1rem;
+  
+  /* Shadows */
+  --mars-shadow-text-primary: rgba(139, 38, 53, 0.9) 2px 2px 0px, rgba(139, 38, 53, 0.7) 4px 6px 4px;
+  --mars-shadow-text-secondary: rgba(139, 38, 53, 0.8) 1px 1px 0px, rgba(139, 38, 53, 0.6) 2px 3px 2px;
+  --mars-shadow-text-subtle: rgba(139, 38, 53, 0.6) 1px 1px 0px, rgba(139, 38, 53, 0.4) 1px 2px 1px;
+  
+  --mars-shadow-element-soft: 0 2px 4px rgba(139, 38, 53, 0.3);
+  --mars-shadow-element-medium: 0 4px 8px rgba(139, 38, 53, 0.4);
+  --mars-shadow-element-strong: 0 8px 16px rgba(139, 38, 53, 0.5);
+  --mars-shadow-element-glow: 0 0 20px rgba(139, 38, 53, 0.6);
+  
+  --mars-shadow-black-text-primary: rgba(0, 0, 0, 0.9) 2px 2px 0px, rgba(0, 0, 0, 0.7) 4px 6px 4px;
+  --mars-shadow-black-text-secondary: rgba(0, 0, 0, 0.8) 1px 1px 0px, rgba(0, 0, 0, 0.6) 2px 3px 2px;
+  --mars-shadow-black-element-soft: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --mars-shadow-black-element-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --mars-shadow-black-element-strong: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Color Utility Classes */
+.mars-bg-red-primary { background-color: var(--mars-red-primary); }
+.mars-bg-red-secondary { background-color: var(--mars-red-secondary); }
+.mars-bg-orange-primary { background-color: var(--mars-orange-primary); }
+.mars-bg-orange-secondary { background-color: var(--mars-orange-secondary); }
+.mars-bg-blue-primary { background-color: var(--mars-blue-primary); }
+.mars-bg-neutral-black { background-color: var(--mars-neutral-black); }
+
+.mars-text-red-primary { color: var(--mars-red-primary); }
+.mars-text-red-secondary { color: var(--mars-red-secondary); }
+.mars-text-orange-primary { color: var(--mars-orange-primary); }
+.mars-text-orange-secondary { color: var(--mars-orange-secondary); }
+.mars-text-blue-primary { color: var(--mars-blue-primary); }
+
+/* Typography Classes */
+.mars-hero-text {
+  font-size: var(--mars-font-size-hero-mobile);
+  font-weight: var(--mars-font-weight-bold);
+  margin-bottom: var(--mars-spacing-hero-mobile);
+  text-shadow: var(--mars-shadow-text-primary);
+}
+
+@media (min-width: 768px) {
+  .mars-hero-text {
+    font-size: var(--mars-font-size-hero-tablet);
+    margin-bottom: var(--mars-spacing-hero-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mars-hero-text {
+    font-size: var(--mars-font-size-hero-desktop);
+  }
+}
+
+.mars-subtitle-text {
+  font-size: var(--mars-font-size-subtitle-mobile);
+  font-weight: var(--mars-font-weight-medium);
+  text-shadow: var(--mars-shadow-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .mars-subtitle-text {
+    font-size: var(--mars-font-size-subtitle-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mars-subtitle-text {
+    font-size: var(--mars-font-size-subtitle-desktop);
+  }
+}
+
+.mars-h1 {
+  font-size: var(--mars-font-size-h1);
+  font-weight: var(--mars-font-weight-bold);
+}
+
+.mars-h2 {
+  font-size: var(--mars-font-size-h2);
+  font-weight: var(--mars-font-weight-semibold);
+}
+
+.mars-h3 {
+  font-size: var(--mars-font-size-h3);
+  font-weight: var(--mars-font-weight-medium);
+}
+
+.mars-h4 {
+  font-size: var(--mars-font-size-h4);
+  font-weight: var(--mars-font-weight-medium);
+}
+
+.mars-body-large {
+  font-size: var(--mars-font-size-body-large);
+  font-weight: var(--mars-font-weight-normal);
+}
+
+.mars-body-medium {
+  font-size: var(--mars-font-size-body-medium);
+  font-weight: var(--mars-font-weight-normal);
+}
+
+.mars-body-small {
+  font-size: var(--mars-font-size-body-small);
+  font-weight: var(--mars-font-weight-normal);
+}
+
+/* Font Weight Utilities */
+.mars-font-bold { font-weight: var(--mars-font-weight-bold); }
+.mars-font-semibold { font-weight: var(--mars-font-weight-semibold); }
+.mars-font-medium { font-weight: var(--mars-font-weight-medium); }
+.mars-font-normal { font-weight: var(--mars-font-weight-normal); }
+
+/* Shadow Utilities */
+.mars-shadow-text-primary { text-shadow: var(--mars-shadow-text-primary); }
+.mars-shadow-text-secondary { text-shadow: var(--mars-shadow-text-secondary); }
+.mars-shadow-text-subtle { text-shadow: var(--mars-shadow-text-subtle); }
+
+.mars-shadow-element-soft { box-shadow: var(--mars-shadow-element-soft); }
+.mars-shadow-element-medium { box-shadow: var(--mars-shadow-element-medium); }
+.mars-shadow-element-strong { box-shadow: var(--mars-shadow-element-strong); }
+.mars-shadow-element-glow { box-shadow: var(--mars-shadow-element-glow); }
+
+.mars-shadow-black-text-primary { text-shadow: var(--mars-shadow-black-text-primary); }
+.mars-shadow-black-text-secondary { text-shadow: var(--mars-shadow-black-text-secondary); }
+.mars-shadow-black-element-soft { box-shadow: var(--mars-shadow-black-element-soft); }
+.mars-shadow-black-element-medium { box-shadow: var(--mars-shadow-black-element-medium); }
+.mars-shadow-black-element-strong { box-shadow: var(--mars-shadow-black-element-strong); }
+
+/* Component Classes */
+.mars-hero-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mars-orange-secondary);
+}
+
+.mars-hero-content {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.mars-subtitle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mars-spacing-subtitle-mobile);
+}
+
+@media (min-width: 640px) {
+  .mars-subtitle-container {
+    flex-direction: row;
+    gap: var(--mars-spacing-subtitle-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mars-subtitle-container {
+    gap: var(--mars-spacing-subtitle-desktop);
+  }
+}
+
+/* Logo Components */
+.mars-logo {
+  filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.2));
+}
+
+.mars-logo .mars-orbit-top,
+.mars-logo .mars-orbit-middle,
+.mars-logo .mars-orbit-bottom {
+  filter: drop-shadow(0 0 2px currentColor);
+}
+
+.mars-logo .mars-center {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+.mars-logo .mars-trajectory {
+  stroke-linecap: round;
+}
+
+/* Logo Showcase Components */
+.mars-logo-showcase {
+  padding: var(--mars-spacing-8);
+  background: linear-gradient(135deg, var(--mars-orange-secondary), var(--mars-red-primary));
+  min-height: 100vh;
+}
+
+.mars-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--mars-spacing-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mars-showcase-item {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: var(--mars-spacing-8);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--mars-shadow-element-soft);
+}
+
+.mars-showcase-title {
+  margin-bottom: var(--mars-spacing-6);
+  color: var(--mars-text-primary);
+  font-weight: var(--mars-font-weight-semibold);
+  font-size: var(--mars-font-size-lg);
+  text-shadow: var(--mars-text-shadow-primary);
+}
+
+.mars-primary {
+  border-color: var(--mars-orange-primary);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.mars-secondary {
+  border-color: var(--mars-orange-secondary);
+  box-shadow: 0 0 20px rgba(234, 88, 12, 0.3);
+}
+
+.mars-accent {
+  border-color: var(--mars-red-primary);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.mars-mission {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.2));
+}
+
+.mars-command {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+}
+
+/* Utility Classes */
+.mars-text-center { text-align: center; }
+.mars-mb-4 { margin-bottom: var(--mars-spacing-4); }
+.mars-mb-6 { margin-bottom: var(--mars-spacing-6); }
+.mars-mb-8 { margin-bottom: var(--mars-spacing-8); }
+.mars-mt-4 { margin-top: var(--mars-spacing-4); }
+.mars-mt-6 { margin-top: var(--mars-spacing-6); }

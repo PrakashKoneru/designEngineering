@@ -1,0 +1,235 @@
+/* Design Systems Playground - Design System */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Colors */
+  --playground-bg-primary: #fbbf24; /* Yellow background */
+  --playground-card-bg: #000000; /* Black cards */
+  --playground-text-primary: #000000; /* Black text on yellow */
+  --playground-text-secondary: #ffffff; /* White text on black */
+  --playground-text-muted: rgba(255, 255, 255, 0.7); /* Muted white */
+  --playground-border-subtle: rgba(255, 255, 255, 0.1);
+  --playground-border-hover: rgba(255, 255, 255, 0.2);
+  
+  /* Typography */
+  --playground-font-size-hero: 3.75rem; /* 60px */
+  --playground-font-size-h2: 1.875rem; /* 30px */
+  --playground-font-size-h3: 1.25rem; /* 20px */
+  --playground-font-size-body: 1rem; /* 16px */
+  --playground-font-size-small: 0.875rem; /* 14px */
+  --playground-font-size-tiny: 0.75rem; /* 12px */
+  
+  --playground-font-weight-bold: 700;
+  --playground-font-weight-semibold: 600;
+  --playground-font-weight-medium: 500;
+  --playground-font-weight-normal: 400;
+  
+  /* Spacing */
+  --playground-spacing-xs: 0.5rem;
+  --playground-spacing-sm: 0.75rem;
+  --playground-spacing-md: 1rem;
+  --playground-spacing-lg: 1.5rem;
+  --playground-spacing-xl: 2rem;
+  --playground-spacing-2xl: 3rem;
+  
+  /* Shadows */
+  --playground-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --playground-shadow-card-hover: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  
+  /* Transitions */
+  --playground-transition-fast: 25ms ease-out;
+  --playground-transition-normal: 200ms ease-out;
+}
+
+/* Layout Classes */
+.playground-container {
+  min-height: 100vh;
+  background-color: var(--playground-bg-primary);
+  padding: var(--playground-spacing-xl);
+}
+
+.playground-content {
+  max-width: 1792px; /* 7xl */
+  margin: 0 auto;
+}
+
+.playground-header {
+  text-align: center;
+  margin-bottom: var(--playground-spacing-2xl);
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--playground-spacing-xl);
+  margin-bottom: var(--playground-spacing-2xl);
+}
+
+/* Typography Classes */
+.playground-title {
+  font-size: var(--playground-font-size-hero);
+  font-weight: var(--playground-font-weight-bold);
+  color: var(--playground-text-primary);
+  margin-bottom: var(--playground-spacing-lg);
+}
+
+.playground-subtitle {
+  font-size: var(--playground-font-size-body);
+  color: rgba(0, 0, 0, 0.8);
+  max-width: 1024px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.playground-h2 {
+  font-size: var(--playground-font-size-h2);
+  font-weight: var(--playground-font-weight-bold);
+  color: var(--playground-text-secondary);
+}
+
+.playground-h3 {
+  font-size: var(--playground-font-size-h3);
+  font-weight: var(--playground-font-weight-semibold);
+  color: var(--playground-text-secondary);
+}
+
+.playground-body {
+  font-size: var(--playground-font-size-body);
+  color: var(--playground-text-muted);
+  line-height: 1.6;
+}
+
+.playground-small {
+  font-size: var(--playground-font-size-small);
+  font-weight: var(--playground-font-weight-medium);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Card Components */
+.playground-card {
+  background-color: var(--playground-card-bg);
+  border-radius: 1rem;
+  padding: var(--playground-spacing-xl);
+  height: 100%;
+  transition: all var(--playground-transition-fast);
+  border: 1px solid var(--playground-border-subtle);
+  box-shadow: var(--playground-shadow-card);
+}
+
+.playground-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--playground-transition-fast);
+}
+
+.playground-card-link:hover .playground-card {
+  transform: scale(1.05);
+  box-shadow: var(--playground-shadow-card-hover);
+  border-color: var(--playground-border-hover);
+}
+
+.playground-card-content {
+  text-align: center;
+}
+
+.playground-card-title {
+  font-size: var(--playground-font-size-h3);
+  font-weight: var(--playground-font-weight-bold);
+  color: var(--playground-text-secondary);
+  margin-bottom: var(--playground-spacing-sm);
+}
+
+.playground-card-description {
+  color: var(--playground-text-muted);
+  margin-bottom: var(--playground-spacing-lg);
+  line-height: 1.6;
+}
+
+/* Feature Tags */
+.playground-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--playground-spacing-xs);
+  margin-bottom: var(--playground-spacing-lg);
+}
+
+.playground-feature-tag {
+  padding: var(--playground-spacing-xs) var(--playground-spacing-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  font-size: var(--playground-font-size-tiny);
+  font-weight: var(--playground-font-weight-medium);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Status Badges */
+.playground-status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--playground-spacing-xs) var(--playground-spacing-md);
+  border-radius: 9999px;
+  font-size: var(--playground-font-size-small);
+  font-weight: var(--playground-font-weight-medium);
+}
+
+.playground-status-complete {
+  background-color: var(--playground-text-secondary);
+  color: var(--playground-card-bg);
+}
+
+.playground-status-development {
+  background-color: #374151;
+  color: var(--playground-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Philosophy Section */
+.playground-philosophy {
+  background-color: var(--playground-card-bg);
+  border-radius: 1.5rem;
+  padding: var(--playground-spacing-2xl);
+  box-shadow: var(--playground-shadow-card);
+  border: 1px solid var(--playground-border-subtle);
+}
+
+.playground-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--playground-spacing-xl);
+}
+
+.playground-philosophy-item {
+  text-align: center;
+}
+
+.playground-philosophy-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin: 0 auto var(--playground-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.playground-philosophy-icon-text {
+  font-size: var(--playground-font-size-h3);
+  color: var(--playground-text-secondary);
+  font-weight: var(--playground-font-weight-bold);
+}
+
+.playground-philosophy-title {
+  font-size: var(--playground-font-size-h3);
+  font-weight: var(--playground-font-weight-semibold);
+  color: var(--playground-text-secondary);
+  margin-bottom: var(--playground-spacing-xs);
+}
+
+.playground-philosophy-text {
+  color: var(--playground-text-muted);
+}

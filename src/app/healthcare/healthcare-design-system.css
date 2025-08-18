@@ -1,0 +1,353 @@
+/* Healthcare Trust Design System */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Trust Blue Palette */
+  --healthcare-blue-50: #eff6ff;
+  --healthcare-blue-100: #dbeafe;
+  --healthcare-blue-200: #bfdbfe;
+  --healthcare-blue-300: #93c5fd;
+  --healthcare-blue-400: #60a5fa;
+  --healthcare-blue-500: #3b82f6;
+  --healthcare-blue-600: #2563eb;
+  --healthcare-blue-700: #1d4ed8;
+  --healthcare-blue-800: #1e40af;
+  --healthcare-blue-900: #1e3a8a;
+  
+  /* Health Green Palette */
+  --healthcare-green-50: #ecfdf5;
+  --healthcare-green-100: #d1fae5;
+  --healthcare-green-200: #a7f3d0;
+  --healthcare-green-300: #6ee7b7;
+  --healthcare-green-400: #34d399;
+  --healthcare-green-500: #10b981;
+  --healthcare-green-600: #059669;
+  --healthcare-green-700: #047857;
+  --healthcare-green-800: #065f46;
+  --healthcare-green-900: #064e3b;
+  
+  /* Neutral Gray Palette */
+  --healthcare-gray-50: #f8fafc;
+  --healthcare-gray-100: #f1f5f9;
+  --healthcare-gray-200: #e2e8f0;
+  --healthcare-gray-300: #cbd5e1;
+  --healthcare-gray-400: #94a3b8;
+  --healthcare-gray-500: #64748b;
+  --healthcare-gray-600: #475569;
+  --healthcare-gray-700: #334155;
+  --healthcare-gray-800: #1e293b;
+  --healthcare-gray-900: #0f172a;
+  
+  /* Primary Colors */
+  --healthcare-primary: var(--healthcare-blue-600);
+  --healthcare-secondary: var(--healthcare-green-600);
+  --healthcare-accent: var(--healthcare-blue-500);
+  --healthcare-success: var(--healthcare-green-500);
+  --healthcare-warning: #f59e0b;
+  --healthcare-error: #ef4444;
+  
+  /* Typography */
+  --healthcare-font-size-xs: 0.75rem;
+  --healthcare-font-size-sm: 0.875rem;
+  --healthcare-font-size-base: 1rem;
+  --healthcare-font-size-lg: 1.125rem;
+  --healthcare-font-size-xl: 1.25rem;
+  --healthcare-font-size-2xl: 1.5rem;
+  --healthcare-font-size-3xl: 1.875rem;
+  --healthcare-font-size-4xl: 2.25rem;
+  --healthcare-font-size-5xl: 3rem;
+  --healthcare-font-size-6xl: 3.75rem;
+  
+  --healthcare-font-weight-light: 300;
+  --healthcare-font-weight-normal: 400;
+  --healthcare-font-weight-medium: 500;
+  --healthcare-font-weight-semibold: 600;
+  --healthcare-font-weight-bold: 700;
+  
+  /* Spacing */
+  --healthcare-spacing-1: 0.25rem;
+  --healthcare-spacing-2: 0.5rem;
+  --healthcare-spacing-3: 0.75rem;
+  --healthcare-spacing-4: 1rem;
+  --healthcare-spacing-6: 1.5rem;
+  --healthcare-spacing-8: 2rem;
+  --healthcare-spacing-10: 2.5rem;
+  --healthcare-spacing-12: 3rem;
+  --healthcare-spacing-16: 4rem;
+  --healthcare-spacing-20: 5rem;
+  
+  /* Strokes */
+  --healthcare-stroke-hairline: 0.5px;
+  --healthcare-stroke-fine: 0.625px;
+  --healthcare-stroke-thin: 0.75px;
+  --healthcare-stroke-medium: 1px;
+  --healthcare-stroke-thick: 1.5px;
+  
+  /* Shadows */
+  --healthcare-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --healthcare-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --healthcare-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --healthcare-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --healthcare-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Layout Classes */
+.healthcare-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, var(--healthcare-blue-50), var(--healthcare-green-50));
+  padding: var(--healthcare-spacing-8);
+}
+
+.healthcare-content {
+  max-width: 1536px;
+  margin: 0 auto;
+}
+
+.healthcare-section {
+  margin-bottom: var(--healthcare-spacing-16);
+}
+
+.healthcare-grid {
+  display: grid;
+  gap: var(--healthcare-spacing-8);
+}
+
+.healthcare-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.healthcare-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.healthcare-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Typography Classes */
+.healthcare-title {
+  font-size: var(--healthcare-font-size-6xl);
+  font-weight: var(--healthcare-font-weight-bold);
+  background: linear-gradient(to right, var(--healthcare-primary), var(--healthcare-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: var(--healthcare-spacing-6);
+}
+
+.healthcare-subtitle {
+  font-size: var(--healthcare-font-size-xl);
+  color: var(--healthcare-gray-600);
+  text-align: center;
+  max-width: 768px;
+  margin: 0 auto var(--healthcare-spacing-16);
+  line-height: 1.6;
+}
+
+.healthcare-h1 {
+  font-size: var(--healthcare-font-size-5xl);
+  font-weight: var(--healthcare-font-weight-bold);
+  color: var(--healthcare-gray-800);
+}
+
+.healthcare-h2 {
+  font-size: var(--healthcare-font-size-3xl);
+  font-weight: var(--healthcare-font-weight-semibold);
+  color: var(--healthcare-primary);
+}
+
+.healthcare-h3 {
+  font-size: var(--healthcare-font-size-xl);
+  font-weight: var(--healthcare-font-weight-semibold);
+  color: var(--healthcare-gray-700);
+}
+
+.healthcare-body {
+  font-size: var(--healthcare-font-size-base);
+  color: var(--healthcare-gray-600);
+  line-height: 1.6;
+}
+
+.healthcare-body-large {
+  font-size: var(--healthcare-font-size-lg);
+  color: var(--healthcare-gray-600);
+  line-height: 1.6;
+}
+
+/* Card Components */
+.healthcare-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: var(--healthcare-spacing-8);
+  box-shadow: var(--healthcare-shadow-md);
+  border: var(--healthcare-stroke-hairline) solid var(--healthcare-gray-200);
+}
+
+.healthcare-card-hover {
+  transition: all 300ms ease;
+}
+
+.healthcare-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--healthcare-shadow-xl);
+}
+
+/* Color Palette Components */
+.healthcare-color-swatch {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: var(--healthcare-shadow-base);
+  border: var(--healthcare-stroke-hairline) solid var(--healthcare-gray-200);
+}
+
+.healthcare-color-preview {
+  height: 6rem;
+  width: 100%;
+}
+
+.healthcare-color-info {
+  padding: var(--healthcare-spacing-4);
+}
+
+.healthcare-color-name {
+  font-weight: var(--healthcare-font-weight-medium);
+  color: var(--healthcare-gray-800);
+  margin-bottom: var(--healthcare-spacing-1);
+}
+
+.healthcare-color-hex {
+  font-size: var(--healthcare-font-size-sm);
+  color: var(--healthcare-gray-500);
+  font-family: monospace;
+  margin-bottom: var(--healthcare-spacing-2);
+}
+
+.healthcare-color-usage {
+  font-size: var(--healthcare-font-size-sm);
+  color: var(--healthcare-gray-600);
+  line-height: 1.5;
+}
+
+/* Button Components */
+.healthcare-btn {
+  padding: var(--healthcare-spacing-3) var(--healthcare-spacing-6);
+  border-radius: 0.5rem;
+  font-weight: var(--healthcare-font-weight-medium);
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: none;
+  font-size: var(--healthcare-font-size-base);
+}
+
+.healthcare-btn-primary {
+  background-color: var(--healthcare-primary);
+  color: white;
+}
+
+.healthcare-btn-primary:hover {
+  background-color: var(--healthcare-blue-700);
+}
+
+.healthcare-btn-secondary {
+  background-color: var(--healthcare-secondary);
+  color: white;
+}
+
+.healthcare-btn-secondary:hover {
+  background-color: var(--healthcare-green-700);
+}
+
+.healthcare-btn-outline {
+  background-color: transparent;
+  color: var(--healthcare-primary);
+  border: var(--healthcare-stroke-medium) solid var(--healthcare-primary);
+}
+
+.healthcare-btn-outline:hover {
+  background-color: var(--healthcare-blue-50);
+}
+
+/* Component System */
+.healthcare-component-demo {
+  padding: var(--healthcare-spacing-6);
+  text-align: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--healthcare-shadow-base);
+  border: var(--healthcare-stroke-hairline) solid var(--healthcare-gray-200);
+}
+
+.healthcare-component-icon {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto var(--healthcare-spacing-4);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--healthcare-blue-100), var(--healthcare-green-100));
+}
+
+/* Product Overview */
+.healthcare-product-overview {
+  background: linear-gradient(135deg, var(--healthcare-blue-600), var(--healthcare-green-600));
+  border-radius: 1rem;
+  padding: var(--healthcare-spacing-10);
+  color: white;
+  text-align: center;
+  box-shadow: var(--healthcare-shadow-xl);
+}
+
+.healthcare-product-title {
+  font-size: var(--healthcare-font-size-4xl);
+  font-weight: var(--healthcare-font-weight-bold);
+  margin-bottom: var(--healthcare-spacing-4);
+}
+
+.healthcare-product-description {
+  font-size: var(--healthcare-font-size-lg);
+  margin-bottom: var(--healthcare-spacing-8);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.healthcare-product-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--healthcare-spacing-6);
+  margin-top: var(--healthcare-spacing-8);
+}
+
+.healthcare-product-feature {
+  text-align: left;
+}
+
+.healthcare-product-feature-title {
+  font-size: var(--healthcare-font-size-xl);
+  font-weight: var(--healthcare-font-weight-semibold);
+  margin-bottom: var(--healthcare-spacing-3);
+}
+
+.healthcare-product-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.healthcare-product-feature-item {
+  margin-bottom: var(--healthcare-spacing-2);
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Utility Classes */
+.healthcare-text-center { text-align: center; }
+.healthcare-text-left { text-align: left; }
+.healthcare-mb-4 { margin-bottom: var(--healthcare-spacing-4); }
+.healthcare-mb-6 { margin-bottom: var(--healthcare-spacing-6); }
+.healthcare-mb-8 { margin-bottom: var(--healthcare-spacing-8); }
+.healthcare-mb-10 { margin-bottom: var(--healthcare-spacing-10); }
+.healthcare-mt-4 { margin-top: var(--healthcare-spacing-4); }
+.healthcare-mt-6 { margin-top: var(--healthcare-spacing-6); }
