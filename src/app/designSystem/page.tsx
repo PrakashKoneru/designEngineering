@@ -1,4 +1,10 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function DesignSystemIndex() {
+  const [focusedCard, setFocusedCard] = useState<number | null>(null);
+  
   const designSystems = [
     {
       id: 1,
@@ -75,103 +81,147 @@ export default function DesignSystemIndex() {
   ];
 
   return (
-    <div className="min-h-screen bg-yellow-50 p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="text-center mb-20">
-          <h1 className="text-6xl font-bold text-black mb-6">
-            Design Systems Playground
-          </h1>
-          <p className="text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
-            A collection of diverse design systems showcasing different approaches, 
-            styles, and solutions for various industries and use cases.
-          </p>
-        </header>
-
-        {/* Design Systems Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {designSystems.map((system) => (
-            <a
-              key={system.id}
-              href={system.route}
-              className="group block"
-            >
-              <div className="bg-black rounded-2xl p-8 h-full transition-all duration-25 ease-out group-hover:scale-105 group-hover:shadow-[0_50px_100px_-20px_rgba(255,255,255,0.15)] group-hover:-translate-y-2 border border-white/10 hover:border-white/20 shadow-lg">
-                {/* Content */}
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    {system.name}
-                  </h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {system.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-6">
-                    {system.features.map((feature, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white/90"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Status */}
-                  <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${
-                    system.status === "Complete" 
-                      ? "bg-white text-black" 
-                      : "bg-gray-800 text-white border border-white/30"
-                  }`}>
-                    {system.status === "Complete" ? "Complete" : "In Development"}
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Playground Philosophy */}
-        <section className="bg-black rounded-3xl p-12 shadow-2xl border border-white/10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-8">
-              Playground Philosophy
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Each design system represents a unique approach to solving design challenges. 
-              From minimalist elegance to futuristic innovation, these systems demonstrate 
-              the versatility and depth of design thinking.
-            </p>
+    <div className="h-screen w-screen bg-yellow-50 overflow-hidden">
+      {/* Overlay to close focused card when clicking outside */}
+      {focusedCard !== null && (
+        <div
+          className="fixed inset-0 z-50 cursor-pointer"
+          onClick={() => setFocusedCard(null)}
+        />
+      )}
+      
+      {/* Design Systems Straight Deck */}
+      <div className="relative group/container" style={{ width: '100vw', height: '100vh' }}>
+          {designSystems.map((system, index) => {
+            const totalCards = designSystems.length;
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-white/20 shadow-md">
-                  <span className="text-2xl text-white font-bold">P</span>
+            // Semicircle positioning with no center gap - rotated 90° left
+            const radius = 150; // Smaller radius for tighter deck
+            const angleSpread = 120; // Reduced spread for better readability
+            const startAngle = -angleSpread / 2 - 90; // Start angle rotated 90° left
+            const angleStep = angleSpread / (totalCards - 1); // Angle between cards
+            const currentAngle = startAngle + (index * angleStep);
+            const radians = (currentAngle * Math.PI) / 180;
+            
+            // Calculate distances first
+            const middleIndex = (totalCards - 1) / 2;
+            const distanceFromMiddle = Math.abs(index - middleIndex);
+            const maxDistance = Math.max(...designSystems.map((_, i) => Math.abs(i - middleIndex)));
+            
+            // Position cards in semicircle
+            const x = radius * Math.cos(radians);
+            const baseY = radius * Math.sin(radians);
+            
+            // Pull center cards down to create natural arc (like holding cards)
+            const centerOffset = (maxDistance - distanceFromMiddle) * 40; // Center cards go much lower
+            let y = baseY + centerOffset; // Positive because we want center cards down
+            
+            // Special adjustment: move ONLY center cards (highest z-index) down a bit
+            const isCenterCard = distanceFromMiddle <= 0.5; // Cards 3 & 4 are center (highest z-index)
+            if (isCenterCard) {
+              y = y - 50; // Move center cards up less (30px down from previous position)
+            }
+            
+            // Rotate cards to face outward for readability
+            const cardRotation = currentAngle + 90; // Face outward from center
+            
+            // Z-index highest at center (inverted V-shape)
+            const cardZIndex = Math.round((maxDistance - distanceFromMiddle) * 10);
+            
+            // Make all cards different heights based on position
+            const baseHeight = 350; // Base height in pixels
+            const heightVariation = (maxDistance - distanceFromMiddle) * 30; // Height increases toward center
+            const cardHeightPx = Math.round(baseHeight + heightVariation);
+            
+            return (
+              <div key={system.id}>
+                {/* Visual card that moves to center and is directly clickable */}
+                <div
+                  className="group absolute transition-all duration-500 ease-out cursor-pointer pointer-events-auto"
+                  onClick={(e) => {
+                    // Only allow focus if no card is currently focused
+                    if (focusedCard === null) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setFocusedCard(index);
+                    }
+                  }}
+                  style={{
+                    transform: focusedCard === index 
+                      ? `translate(calc(50vw - 50%), calc(50vh - 50%)) rotate(0deg)`
+                      : `translate(calc(50vw + ${x}px - 50%), calc(85vh + ${y}px - 50%)) rotate(${cardRotation}deg)`,
+                    transformOrigin: 'center bottom',
+                    zIndex: focusedCard === index ? 60 : cardZIndex,
+                  }}
+                >
+                  <div 
+                    className={`w-64 bg-black rounded-2xl p-6 border border-white/10 shadow-lg transition-all duration-500 ease-out
+                             ${focusedCard === index ? 'shadow-[0_50px_100px_-20px_rgba(255,255,255,0.15)] border-white/20 rotate-0 scale-150 opacity-100' : ''}
+                             ${focusedCard !== null && focusedCard !== index ? 'scale-75 opacity-50 blur-sm' : ''}`}
+                    style={{ 
+                      height: focusedCard === index ? '335px' : `${cardHeightPx}px`
+                    }}
+                  >
+                  {/* Link overlay for focused card */}
+                  {focusedCard === index && (
+                    <a
+                      href={system.route}
+                      className="absolute inset-0 z-0"
+                    />
+                  )}
+
+                  
+                  {/* Content */}
+                  <div className="text-left h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-3">
+                        {system.name}
+                      </h3>
+                      <p className="text-gray-300 mb-4 leading-relaxed text-sm transition-opacity duration-300"
+                         style={{ opacity: focusedCard === index ? 1 : 0.7 }}>
+                        {system.description}
+                      </p>
+
+                      {/* Features */}
+                      <div className="flex flex-wrap justify-start gap-1 mb-4 opacity-70 transition-opacity duration-300"
+                           style={{ opacity: focusedCard === index ? 1 : 0.7 }}>
+                        {system.features.map((feature, featureIndex) => (
+                          <span
+                            key={featureIndex}
+                            className="min-w-[80px] px-[10px] py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-white/50 text-center"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Call to action button - keep centered */}
+                    <div className="text-center">
+                      <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white text-black hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
+                        {system.status === "Complete" ? "Explore Project" : "Preview"}
+                      </div>
+                    </div>
+                  </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Purpose-Driven</h3>
-                <p className="text-gray-300">Each system solves specific problems</p>
               </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-white/20 shadow-md">
-                  <span className="text-2xl text-white font-bold">I</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Iterative</h3>
-                <p className="text-gray-300">Continuous improvement and refinement</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-white/20 shadow-md">
-                  <span className="text-2xl text-white font-bold">D</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Diverse</h3>
-                <p className="text-gray-300">Multiple styles and approaches</p>
-              </div>
-            </div>
-          </div>
-        </section>
+            );
+          })}
       </div>
+
+        {/* Header moved below */}
+        {/* <div className="absolute bottom-8 left-0 right-0">
+          <header className="text-center">
+            <h1 className="text-4xl font-bold text-black mb-4">
+              Design Systems Playground
+            </h1>
+            <p className="text-lg text-black/80 max-w-2xl mx-auto leading-relaxed px-4">
+              A collection of diverse design systems showcasing different approaches, 
+              styles, and solutions for various industries and use cases.
+            </p>
+          </header>
+        </div> */}
     </div>
   );
 }
