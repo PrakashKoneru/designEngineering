@@ -1,54 +1,96 @@
+import './healthcare-design-system.css';
+
 export default function HealthcareDesignSystem() {
+  // Design Tokens - Reference CSS Custom Properties
+  const designTokens = {
+    blue: {
+      50: 'var(--healthcare-blue-50)',
+      100: 'var(--healthcare-blue-100)',
+      200: 'var(--healthcare-blue-200)',
+      300: 'var(--healthcare-blue-300)',
+      400: 'var(--healthcare-blue-400)',
+      500: 'var(--healthcare-blue-500)',
+      600: 'var(--healthcare-blue-600)',
+      700: 'var(--healthcare-blue-700)',
+      800: 'var(--healthcare-blue-800)',
+      900: 'var(--healthcare-blue-900)',
+    },
+    green: {
+      50: 'var(--healthcare-green-50)',
+      100: 'var(--healthcare-green-100)',
+      200: 'var(--healthcare-green-200)',
+      300: 'var(--healthcare-green-300)',
+      400: 'var(--healthcare-green-400)',
+      500: 'var(--healthcare-green-500)',
+      600: 'var(--healthcare-green-600)',
+      700: 'var(--healthcare-green-700)',
+      800: 'var(--healthcare-green-800)',
+      900: 'var(--healthcare-green-900)',
+    },
+    gray: {
+      50: 'var(--healthcare-gray-50)',
+      100: 'var(--healthcare-gray-100)',
+      200: 'var(--healthcare-gray-200)',
+      300: 'var(--healthcare-gray-300)',
+      400: 'var(--healthcare-gray-400)',
+      500: 'var(--healthcare-gray-500)',
+      600: 'var(--healthcare-gray-600)',
+      700: 'var(--healthcare-gray-700)',
+      800: 'var(--healthcare-gray-800)',
+      900: 'var(--healthcare-gray-900)',
+    }
+  };
+
   const colorPalette = [
     // Healthcare Blue Scale
-    { name: 'Trust Blue 50', hex: '#eff6ff', usage: 'Lightest backgrounds' },
-    { name: 'Trust Blue 100', hex: '#dbeafe', usage: 'Very light surfaces' },
-    { name: 'Trust Blue 200', hex: '#bfdbfe', usage: 'Light borders' },
-    { name: 'Trust Blue 300', hex: '#93c5fd', usage: 'Medium light accents' },
-    { name: 'Trust Blue 400', hex: '#60a5fa', usage: 'Medium blue actions' },
-    { name: 'Trust Blue 500', hex: '#3b82f6', usage: 'Primary actions' },
-    { name: 'Trust Blue 600', hex: '#2563eb', usage: 'Emphasis' },
-    { name: 'Trust Blue 700', hex: '#1d4ed8', usage: 'Headings' },
-    { name: 'Trust Blue 800', hex: '#1e40af', usage: 'Text' },
-    { name: 'Trust Blue 900', hex: '#1e3a8a', usage: 'Deep elements' },
+    { name: 'Trust Blue 50', token: 'blue.50', color: designTokens.blue[50], usage: 'Lightest backgrounds' },
+    { name: 'Trust Blue 100', token: 'blue.100', color: designTokens.blue[100], usage: 'Very light surfaces' },
+    { name: 'Trust Blue 200', token: 'blue.200', color: designTokens.blue[200], usage: 'Light borders' },
+    { name: 'Trust Blue 300', token: 'blue.300', color: designTokens.blue[300], usage: 'Medium light accents' },
+    { name: 'Trust Blue 400', token: 'blue.400', color: designTokens.blue[400], usage: 'Medium blue actions' },
+    { name: 'Trust Blue 500', token: 'blue.500', color: designTokens.blue[500], usage: 'Primary actions' },
+    { name: 'Trust Blue 600', token: 'blue.600', color: designTokens.blue[600], usage: 'Emphasis' },
+    { name: 'Trust Blue 700', token: 'blue.700', color: designTokens.blue[700], usage: 'Headings' },
+    { name: 'Trust Blue 800', token: 'blue.800', color: designTokens.blue[800], usage: 'Text' },
+    { name: 'Trust Blue 900', token: 'blue.900', color: designTokens.blue[900], usage: 'Deep elements' },
     
     // Healthcare Green Scale
-    { name: 'Health Green 50', hex: '#f0fdf4', usage: 'Success backgrounds' },
-    { name: 'Health Green 100', hex: '#dcfce7', usage: 'Success surfaces' },
-    { name: 'Health Green 200', hex: '#bbf7d0', usage: 'Success borders' },
-    { name: 'Health Green 300', hex: '#86efac', usage: 'Success accents' },
-    { name: 'Health Green 400', hex: '#4ade80', usage: 'Success actions' },
-    { name: 'Health Green 500', hex: '#22c55e', usage: 'Primary success' },
-    { name: 'Health Green 600', hex: '#16a34a', usage: 'Success emphasis' },
-    { name: 'Health Green 700', hex: '#15803d', usage: 'Success headings' },
-    { name: 'Health Green 800', hex: '#166534', usage: 'Success text' },
-    { name: 'Health Green 900', hex: '#14532d', usage: 'Deep success' },
+    { name: 'Health Green 50', token: 'green.50', color: designTokens.green[50], usage: 'Success backgrounds' },
+    { name: 'Health Green 100', token: 'green.100', color: designTokens.green[100], usage: 'Success surfaces' },
+    { name: 'Health Green 200', token: 'green.200', color: designTokens.green[200], usage: 'Success borders' },
+    { name: 'Health Green 300', token: 'green.300', color: designTokens.green[300], usage: 'Success accents' },
+    { name: 'Health Green 400', token: 'green.400', color: designTokens.green[400], usage: 'Success actions' },
+    { name: 'Health Green 500', token: 'green.500', color: designTokens.green[500], usage: 'Primary success' },
+    { name: 'Health Green 600', token: 'green.600', color: designTokens.green[600], usage: 'Success emphasis' },
+    { name: 'Health Green 700', token: 'green.700', color: designTokens.green[700], usage: 'Success headings' },
+    { name: 'Health Green 800', token: 'green.800', color: designTokens.green[800], usage: 'Success text' },
+    { name: 'Health Green 900', token: 'green.900', color: designTokens.green[900], usage: 'Deep success' },
     
     // Neutral Gray Scale
-    { name: 'Neutral 50', hex: '#f9fafb', usage: 'Lightest backgrounds' },
-    { name: 'Neutral 100', hex: '#f3f4f6', usage: 'Very light surfaces' },
-    { name: 'Neutral 200', hex: '#e5e7eb', usage: 'Light borders' },
-    { name: 'Neutral 300', hex: '#d1d5db', usage: 'Medium light' },
-    { name: 'Neutral 400', hex: '#9ca3af', usage: 'Medium accents' },
-    { name: 'Neutral 500', hex: '#6b7280', usage: 'Primary text' },
-    { name: 'Neutral 600', hex: '#4b5563', usage: 'Emphasis' },
-    { name: 'Neutral 700', hex: '#374151', usage: 'Headings' },
-    { name: 'Neutral 800', hex: '#1f2937', usage: 'Dark text' },
-    { name: 'Neutral 900', hex: '#111827', usage: 'Deepest elements' },
+    { name: 'Neutral 50', token: 'gray.50', color: designTokens.gray[50], usage: 'Lightest backgrounds' },
+    { name: 'Neutral 100', token: 'gray.100', color: designTokens.gray[100], usage: 'Very light surfaces' },
+    { name: 'Neutral 200', token: 'gray.200', color: designTokens.gray[200], usage: 'Light borders' },
+    { name: 'Neutral 300', token: 'gray.300', color: designTokens.gray[300], usage: 'Medium light' },
+    { name: 'Neutral 400', token: 'gray.400', color: designTokens.gray[400], usage: 'Medium accents' },
+    { name: 'Neutral 500', token: 'gray.500', color: designTokens.gray[500], usage: 'Primary text' },
+    { name: 'Neutral 600', token: 'gray.600', color: designTokens.gray[600], usage: 'Emphasis' },
+    { name: 'Neutral 700', token: 'gray.700', color: designTokens.gray[700], usage: 'Headings' },
+    { name: 'Neutral 800', token: 'gray.800', color: designTokens.gray[800], usage: 'Dark text' },
+    { name: 'Neutral 900', token: 'gray.900', color: designTokens.gray[900], usage: 'Deepest elements' },
   ];
 
   const strokeStyles = [
-    { name: 'Hairline', width: '0.5px', color: '#6b7280', usage: 'Subtle borders, dividers' },
-    { name: 'Fine', width: '0.625px', color: '#9ca3af', usage: 'Secondary elements, hints' },
-    { name: 'Thin', width: '0.75px', color: '#3b82f6', usage: 'Primary elements, focus' },
-    { name: 'Medium', width: '1px', color: '#1d4ed8', usage: 'Strong emphasis, headings' },
+    { name: 'Hairline', width: 'var(--healthcare-stroke-hairline)', color: designTokens.gray[500], usage: 'Subtle borders, dividers' },
+    { name: 'Fine', width: 'var(--healthcare-stroke-fine)', color: designTokens.gray[400], usage: 'Secondary elements, hints' },
+    { name: 'Thin', width: 'var(--healthcare-stroke-thin)', color: designTokens.blue[500], usage: 'Primary elements, focus' },
+    { name: 'Medium', width: 'var(--healthcare-stroke-medium)', color: designTokens.blue[700], usage: 'Strong emphasis, headings' },
   ];
 
   const healthcareComponents = [
-    { name: 'Doctor Card', style: 'Clean profile with trust indicators', color: '#3b82f6' },
-    { name: 'Appointment Button', style: 'Clear call-to-action for booking', color: '#22c55e' },
-    { name: 'Medical Form', style: 'Accessible input fields', color: '#6b7280' },
-    { name: 'Health Status', style: 'Visual health indicators', color: '#16a34a' },
+    { name: 'Doctor Card', style: 'Clean profile with trust indicators', color: designTokens.blue[500] },
+    { name: 'Appointment Button', style: 'Clear call-to-action for booking', color: designTokens.green[500] },
+    { name: 'Medical Form', style: 'Accessible input fields', color: designTokens.gray[500] },
+    { name: 'Health Status', style: 'Visual health indicators', color: designTokens.green[600] },
   ];
 
   return (
@@ -149,7 +191,7 @@ export default function HealthcareDesignSystem() {
                 {/* Color Swatch */}
                 <div 
                   className="h-24 w-full"
-                  style={{ backgroundColor: color.hex }}
+                  style={{ backgroundColor: color.color }}
                 />
                 
                 <div className="p-4">
@@ -157,8 +199,8 @@ export default function HealthcareDesignSystem() {
                     <span className="font-medium text-blue-800">
                       {color.name}
                     </span>
-                    <span className="text-sm text-blue-500 font-mono">
-                      {color.hex}
+                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-600 font-mono rounded">
+                      {color.token}
                     </span>
                   </div>
                   
@@ -307,21 +349,21 @@ export default function HealthcareDesignSystem() {
                 <div className="space-y-4">
                   <button 
                     className="px-8 py-2.5 text-white font-light tracking-wide transition-all duration-300 border-0 rounded-md"
-                    style={{ backgroundColor: '#3b82f6' }}
+                    style={{ backgroundColor: designTokens.blue[500] }}
                   >
                     Book Appointment
                   </button>
                   
                   <button 
                     className="px-8 py-2.5 bg-transparent text-blue-700 font-light tracking-wide transition-all duration-300 border rounded-md"
-                    style={{ borderWidth: '0.5px', borderColor: '#3b82f6' }}
+                    style={{ borderWidth: 'var(--healthcare-stroke-hairline)', borderColor: designTokens.blue[500] }}
                   >
                     View Profile
                   </button>
                   
                   <button 
                     className="px-8 py-2.5 bg-transparent text-green-600 font-light tracking-wide transition-all duration-300 border rounded-md"
-                    style={{ borderWidth: '0.5px', borderColor: '#22c55e' }}
+                    style={{ borderWidth: 'var(--healthcare-stroke-hairline)', borderColor: designTokens.green[500] }}
                   >
                     Schedule Follow-up
                   </button>
@@ -333,13 +375,13 @@ export default function HealthcareDesignSystem() {
                 <h4 className="font-medium text-blue-800 mb-6 text-lg">Medical Cards</h4>
                 <div className="space-y-4">
                   <div className="p-6 bg-white border rounded-md"
-                       style={{ borderWidth: '0.5px', borderColor: '#bfdbfe' }}>
+                       style={{ borderWidth: 'var(--healthcare-stroke-hairline)', borderColor: designTokens.blue[200] }}>
                     <h5 className="font-light text-blue-800 mb-3 text-lg tracking-wide">Doctor Profile</h5>
                     <p className="text-sm text-gray-600 leading-relaxed">Clean background with trust indicators</p>
                   </div>
                   
                   <div className="p-6 bg-green-50 border rounded-md"
-                       style={{ borderWidth: '0.5px', borderColor: '#bbf7d0' }}>
+                       style={{ borderWidth: 'var(--healthcare-stroke-hairline)', borderColor: designTokens.green[200] }}>
                     <h5 className="font-light text-green-800 mb-3 text-lg tracking-wide">Health Status</h5>
                     <p className="text-sm text-green-600 leading-relaxed">Success indicators with refined borders</p>
                   </div>
