@@ -274,7 +274,7 @@ export default function RoverAnimation() {
       
       // Animate river waves - rectangular pattern moving along X
       if (riverRef.current) {
-        riverRef.current.children.forEach((line, index) => {
+        riverRef.current.children.forEach((line) => {
           if (line instanceof THREE.Line) {
             const positions = line.geometry.attributes.position;
             const array = positions.array as Float32Array;
@@ -291,7 +291,7 @@ export default function RoverAnimation() {
       // Subtle rock animation - gentle rotation and opacity pulse
       rocks.forEach((rock, index) => {
         rock.rotation.y += 0.001 * (index % 2 === 0 ? 1 : -1); // Slow rotation
-        rock.material.opacity = 0.4 + 0.2 * Math.sin(time * 2 + index); // Gentle pulsing
+        (rock.material as THREE.LineBasicMaterial).opacity = 0.4 + 0.2 * Math.sin(time * 2 + index); // Gentle pulsing
       });
       
       renderer.render(scene, camera);

@@ -115,7 +115,7 @@ animate(); // Start the loop`}
               🎯 Mouse Interactions
             </h2>
             <p className="text-gray-300 mb-4">
-              The "Invisible Laser Pointer" technique - how mouse interactions work with 3D objects:
+              The &ldquo;Invisible Laser Pointer&rdquo; technique - how mouse interactions work with 3D objects:
             </p>
             <pre className="text-sm text-green-400 bg-gray-900 p-4 rounded overflow-x-auto">
 {`// 7. MOUSE INTERACTIONS (Making it respond to you)

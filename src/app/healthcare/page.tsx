@@ -396,9 +396,9 @@ export default function HealthcareDesignSystem() {
           <div className="bg-gradient-to-r from-blue-900 to-green-800 rounded-md p-10 text-white text-center">
             <h3 className="text-2xl font-light mb-6">Healthcare Design Philosophy</h3>
             <p className="text-lg text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              "Healthcare design should be trustworthy, accessible, and refined. Every element serves 
+              &ldquo;Healthcare design should be trustworthy, accessible, and refined. Every element serves 
               to build confidence, every interaction promotes clarity, and every visual choice supports 
-              the critical nature of medical applications."
+              the critical nature of medical applications.&rdquo;
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">

@@ -1,5 +1,5 @@
 import './mars-design-system.css';
-import { MarsLogoShowcase } from './components/LogoShowcase';
+// import { MarsLogoShowcase } from './components/LogoShowcase';
 import HuMaRnSLogo from './components/HuMaRnSLogo';
 
 export default function FuturisticDesignSystem() {
@@ -65,49 +65,49 @@ export default function FuturisticDesignSystem() {
   };
 
   // Typography Design Tokens - Granular Values
-  const typography = {
-    fontSize: {
-      hero: {
-        mobile: '2.25rem',    // 36px
-        tablet: '3.75rem',    // 60px  
-        desktop: '6rem'       // 96px
-      },
-      subtitle: {
-        mobile: '1.125rem',   // 18px
-        tablet: '1.25rem',    // 20px
-        desktop: '1.5rem'     // 24px
-      },
-      heading: {
-        h1: '3rem',           // 48px
-        h2: '1.875rem',       // 30px
-        h3: '1.25rem',        // 20px
-        h4: '1.125rem'        // 18px
-      },
-      body: {
-        large: '1.125rem',    // 18px
-        medium: '1rem',       // 16px
-        small: '0.875rem'     // 14px
-      }
-    },
-    fontWeight: {
-      bold: '700',
-      semibold: '600', 
-      medium: '500',
-      normal: '400'
-    },
-    spacing: {
-      hero: {
-        mobile: '1.5rem',     // 24px
-        tablet: '2rem'        // 32px
-      },
-      subtitle: {
-        mobile: '1rem',       // 16px
-        tablet: '1.5rem',     // 24px
-        desktop: '2rem'       // 32px
-      },
-      standard: '1rem'        // 16px
-    }
-  };
+  // const typography = {
+  //   fontSize: {
+  //     hero: {
+  //       mobile: '2.25rem',    // 36px
+  //       tablet: '3.75rem',    // 60px  
+  //       desktop: '6rem'       // 96px
+  //     },
+  //     subtitle: {
+  //       mobile: '1.125rem',   // 18px
+  //       tablet: '1.25rem',    // 20px
+  //       desktop: '1.5rem'     // 24px
+  //     },
+  //     heading: {
+  //       h1: '3rem',           // 48px
+  //       h2: '1.875rem',       // 30px
+  //       h3: '1.25rem',        // 20px
+  //       h4: '1.125rem'        // 18px
+  //     },
+  //     body: {
+  //       large: '1.125rem',    // 18px
+  //       medium: '1rem',       // 16px
+  //       small: '0.875rem'     // 14px
+  //     }
+  //   },
+  //   fontWeight: {
+  //     bold: '700',
+  //     semibold: '600', 
+  //     medium: '500',
+  //     normal: '400'
+  //   },
+  //   spacing: {
+  //     hero: {
+  //       mobile: '1.5rem',     // 24px
+  //       tablet: '2rem'        // 32px
+  //     },
+  //     subtitle: {
+  //       mobile: '1rem',       // 16px
+  //       tablet: '1.5rem',     // 24px
+  //       desktop: '2rem'       // 32px
+  //     },
+  //     standard: '1rem'        // 16px
+  //   }
+  // };
 
   // Design System Display Data (for documentation)
   const marsColorPalette = [
@@ -564,9 +564,9 @@ export default function FuturisticDesignSystem() {
             <section className="bg-gradient-to-r from-red-900 to-orange-900 rounded-md p-10 border border-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.3)] text-center">
                 <h3 className="text-2xl font-semibold text-red-100 mb-6">Mars Mission Design Philosophy</h3>
                 <p className="text-lg text-red-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-                "Futuristic design should inspire wonder and confidence. Every element serves 
+                &ldquo;Futuristic design should inspire wonder and confidence. Every element serves 
                 to advance human exploration, every interaction promotes discovery, and every 
-                visual choice supports the incredible journey to Mars and beyond."
+                visual choice supports the incredible journey to Mars and beyond.&rdquo;
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">

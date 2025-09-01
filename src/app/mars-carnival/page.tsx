@@ -80,9 +80,9 @@ export default function MarsCarnaval() {
     
     // Main tower/base
     const towerGeometry = new THREE.CylinderGeometry(8, 12, 40, 16);
-    const towerMaterial = new THREE.MeshPhongMaterial({ 
+    const towerMaterial = new THREE.MeshStandardMaterial({ 
       color: '#A0522D', // Reddish-brown like in image
-      shininess: 60,
+      roughness: 0.7,
       metalness: 0.3
     });
     const tower = new THREE.Mesh(towerGeometry, towerMaterial);
@@ -92,9 +92,9 @@ export default function MarsCarnaval() {
 
     // Large carousel top
     const carouselGeometry = new THREE.CylinderGeometry(25, 20, 8, 32);
-    const carouselMaterial = new THREE.MeshPhongMaterial({ 
+    const carouselMaterial = new THREE.MeshStandardMaterial({ 
       color: '#CD5C5C', // Indian red like the main structure
-      shininess: 80,
+      roughness: 0.6,
       metalness: 0.4
     });
     const carousel = new THREE.Mesh(carouselGeometry, carouselMaterial);
@@ -123,9 +123,9 @@ export default function MarsCarnaval() {
 
       // Decorative pillars
       const pillarGeometry = new THREE.CylinderGeometry(0.5, 0.8, 15, 8);
-      const pillarMaterial = new THREE.MeshPhongMaterial({ 
+      const pillarMaterial = new THREE.MeshStandardMaterial({ 
         color: '#CD853F', // Brass/bronze like in image
-        shininess: 70,
+        roughness: 0.5,
         metalness: 0.5
       });
       const pillar = new THREE.Mesh(pillarGeometry, pillarMaterial);
@@ -140,9 +140,9 @@ export default function MarsCarnaval() {
 
     // Spire on top
     const spireGeometry = new THREE.ConeGeometry(3, 15, 8);
-    const spireMaterial = new THREE.MeshPhongMaterial({ 
+    const spireMaterial = new THREE.MeshStandardMaterial({ 
       color: '#B8860B', // Darker gold with reddish tint
-      shininess: 90,
+      roughness: 0.4,
       metalness: 0.6
     });
     const spire = new THREE.Mesh(spireGeometry, spireMaterial);
@@ -411,7 +411,7 @@ export default function MarsCarnaval() {
 
         <div className="text-center mt-8 p-6 bg-orange-950/50 rounded-lg border border-orange-500/30">
           <p className="text-lg text-orange-200">
-            🎯 <strong>Mars Carnival Experience:</strong> A whimsical vision of humanity's future entertainment on the Red Planet.
+            🎯 <strong>Mars Carnival Experience:</strong> A whimsical vision of humanity&apos;s future entertainment on the Red Planet.
             Watch the massive carousel slowly rotate while planets drift across the alien sky above this interplanetary amusement park!
           </p>
         </div>

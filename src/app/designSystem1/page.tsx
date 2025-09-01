@@ -32,12 +32,12 @@ export default function DesignSystem1() {
     { name: 'Medium', width: '1px', color: '#1d4ed8', usage: 'Strong emphasis, headings' },
   ];
 
-  const illustrationExamples = [
-    { name: 'Minimal Icon', style: 'Simple geometric shapes with thin strokes', color: '#3b82f6' },
-    { name: 'Line Art', style: 'Continuous flowing lines with consistent weight', color: '#6b7280' },
-    { name: 'Abstract Form', style: 'Organic shapes with delicate outlines', color: '#374151' },
-    { name: 'Pattern Element', style: 'Repeating motifs with thin borders', color: '#60a5fa' },
-  ];
+  // const illustrationExamples = [
+  //   { name: 'Minimal Icon', style: 'Simple geometric shapes with thin strokes', color: '#3b82f6' },
+  //   { name: 'Line Art', style: 'Continuous flowing lines with consistent weight', color: '#6b7280' },
+  //   { name: 'Abstract Form', style: 'Organic shapes with delicate outlines', color: '#374151' },
+  //   { name: 'Pattern Element', style: 'Repeating motifs with thin borders', color: '#60a5fa' },
+  // ];
 
   return (
     <div className="min-h-screen bg-slate-50 p-8">
@@ -266,9 +266,9 @@ export default function DesignSystem1() {
           <div className="bg-slate-800 rounded-md p-10 text-white text-center">
             <h3 className="text-2xl font-light mb-6">Refined Design Philosophy</h3>
             <p className="text-lg text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              "Design should be purposeful and elegant. Every element serves a function, 
+              &ldquo;Design should be purposeful and elegant. Every element serves a function, 
               every stroke has intention, and every color choice supports clarity. 
-              Less is more, but what remains must be perfect."
+              Less is more, but what remains must be perfect.&rdquo;
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
