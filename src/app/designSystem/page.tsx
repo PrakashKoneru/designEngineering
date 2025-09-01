@@ -2,14 +2,6 @@ export default function DesignSystemIndex() {
   const designSystems = [
     {
       id: 1,
-      name: "Refined Minimalist",
-      description: "Clean, purposeful design with thin strokes and elegant simplicity",
-      route: "/designSystem1",
-      features: ["Minimalist", "Precise", "Elegant"],
-      status: "Complete"
-    },
-    {
-      id: 2,
       name: "Healthcare Trust",
       description: "Refined minimalist design applied to healthcare - trustworthy, accessible, and clean",
       route: "/healthcare",
@@ -17,7 +9,7 @@ export default function DesignSystemIndex() {
       status: "Complete"
     },
     {
-      id: 3,
+      id: 2,
       name: "Finance Professional",
       description: "Professional, secure, and data-focused design for financial applications",
       route: "/finance",
@@ -25,7 +17,7 @@ export default function DesignSystemIndex() {
       status: "In Development"
     },
     {
-      id: 4,
+      id: 3,
       name: "Neumorphism Soft",
       description: "Soft shadows, subtle depth, and tactile design elements",
       route: "/neumorphism",
@@ -33,7 +25,7 @@ export default function DesignSystemIndex() {
       status: "In Development"
     },
     {
-      id: 5,
+      id: 4,
       name: "Glassmorphism Crystal",
       description: "Transparency, blur effects, and modern glass-like interfaces",
       route: "/glassmorphism",
@@ -41,11 +33,43 @@ export default function DesignSystemIndex() {
       status: "In Development"
     },
     {
-      id: 6,
+      id: 5,
       name: "Futuristic Mars",
       description: "Sci-fi inspired, glowing elements, and advanced technology aesthetics inspired by Mars exploration",
       route: "/futuristic",
       features: ["Sci-fi", "Glowing", "Advanced"],
+      status: "Complete"
+    },
+    {
+      id: 6,
+      name: "Mars Carnival",
+      description: "Interactive 3D Mars carnival experience with rotating carousels and floating planets",
+      route: "/mars-carnival",
+      features: ["3D", "Interactive", "Whimsical"],
+      status: "Complete"
+    },
+    {
+      id: 7,
+      name: "Mars Landscape",
+      description: "Cinematic 3D Mars landscape background with atmospheric dust particles",
+      route: "/mars-landscape",
+      features: ["3D", "Atmospheric", "Background"],
+      status: "Complete"
+    },
+    {
+      id: 8,
+      name: "Rover Animation",
+      description: "Animated Mars rover moving along wavy terrain with realistic wheel rotation",
+      route: "/rover-animation",
+      features: ["Animation", "Physics", "Realistic"],
+      status: "Complete"
+    },
+    {
+      id: 9,
+      name: "Three.js Demo",
+      description: "Educational breakdown of Three.js concepts and interactive examples",
+      route: "/threejs-demo",
+      features: ["Educational", "Interactive", "Explanatory"],
       status: "Complete"
     }
   ];

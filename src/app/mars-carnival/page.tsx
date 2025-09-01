@@ -29,7 +29,7 @@ export default function MarsCarnaval() {
       canvas: canvasRef.current,
       antialias: true,
     });
-    renderer.setSize(window.innerWidth * 0.95, window.innerHeight * 0.8);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -325,8 +325,8 @@ export default function MarsCarnaval() {
 
     // Handle resize
     const handleResize = () => {
-      const width = window.innerWidth * 0.95;
-      const height = window.innerHeight * 0.8;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
       
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -363,58 +363,21 @@ export default function MarsCarnaval() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-800 to-red-900 p-8">
-      <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 mb-4">
-            🎡 Mars Carnival
-          </h1>
-          <p className="text-xl text-orange-200 max-w-4xl mx-auto">
-            A futuristic amusement park on Mars with a massive central carousel, carnival tents, palm trees, and multiple planets in the alien sky
-          </p>
-        </header>
+    <div className="h-[100vh] w-[100vw] bg-gradient-to-br from-orange-800 to-red-900 relative overflow-hidden">
+      <header className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center z-10">
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 mb-2">
+          🎡 Mars Carnival
+        </h1>
+        <p className="text-lg text-orange-200">
+          A futuristic amusement park on Mars
+        </p>
+      </header>
 
-        <div className="bg-gradient-to-r from-orange-900/80 to-red-900/80 rounded-2xl p-8 border border-orange-500/30 shadow-[0_0_30px_rgba(255,107,53,0.3)] mb-8">
-          <div className="flex justify-center">
-            <canvas 
-              ref={canvasRef}
-              className="rounded-lg border border-orange-500/30 shadow-[0_0_20px_rgba(255,107,53,0.3)]"
-            />
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-r from-orange-900/80 to-red-900/80 rounded-xl p-6 border border-orange-500/30">
-            <h3 className="text-xl font-semibold text-orange-200 mb-4">🎠 Carnival Features</h3>
-            <ul className="space-y-2 text-orange-100">
-              <li>• Massive rotating central carousel structure</li>
-              <li>• Colorful carnival tents scattered around</li>
-              <li>• Mars palm trees creating an oasis feel</li>
-              <li>• Tiny people exploring the carnival</li>
-              <li>• Ornate gondolas and decorative pillars</li>
-              <li>• Golden spire reaching toward the sky</li>
-            </ul>
-          </div>
-
-          <div className="bg-gradient-to-r from-orange-900/80 to-red-900/80 rounded-xl p-6 border border-orange-500/30">
-            <h3 className="text-xl font-semibold text-orange-200 mb-4">🌌 Celestial Scene</h3>
-            <ul className="space-y-2 text-orange-100">
-              <li>• Multiple planets visible in the sky</li>
-              <li>• Atmospheric Mars gradient lighting</li>
-              <li>• Distant mountain ranges on horizon</li>
-              <li>• Cinematic camera with gentle movement</li>
-              <li>• Advanced shadow casting system</li>
-              <li>• Tone-mapped realistic lighting</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="text-center mt-8 p-6 bg-orange-950/50 rounded-lg border border-orange-500/30">
-          <p className="text-lg text-orange-200">
-            🎯 <strong>Mars Carnival Experience:</strong> A whimsical vision of humanity&apos;s future entertainment on the Red Planet.
-            Watch the massive carousel slowly rotate while planets drift across the alien sky above this interplanetary amusement park!
-          </p>
-        </div>
+      <div className="h-full w-full flex items-center justify-center">
+        <canvas 
+          ref={canvasRef}
+          className="block w-full h-full"
+        />
       </div>
     </div>
   );
