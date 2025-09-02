@@ -299,20 +299,28 @@ export default function DesignSystemIndex() {
             const tiltDirection = index < middleIndex ? -1 : 1; // Left negative, right positive
             const cardRotation = (distanceFromMiddle / maxDistance) * maxTilt * tiltDirection;
             
-            // Z-index flows linearly, but empty cards always stay below real cards
-            // Right empty cards (index 18+) have reverse flow
+            // Z-index flows up to center, then reverses after center
+            const centerIndex = Math.floor(totalCards / 2); // Index 13
             let cardZIndex;
+            
             if (system.isEmpty) {
-              if (index >= 18) {
-                // Right empty cards: reverse flow (high to low)
-                cardZIndex = (totalCards - index) * 5;
-              } else {
-                // Left empty cards: normal flow (low to high)
+              if (index <= centerIndex) {
+                // Left half + center: normal flow (low to high)
                 cardZIndex = index * 5;
+              } else {
+                // Right half: reverse flow (high to low)
+                cardZIndex = (totalCards - index) * 5;
               }
             } else {
-              // Content cards: highest z-index with linear flow
-              cardZIndex = (index * 10) + 500;
+              // Content cards: symmetric z-index flow toward center
+              if (index === centerIndex) {
+                // Center card: absolute highest z-index
+                cardZIndex = 1000;
+              } else {
+                // Both sides: flow toward center (symmetric mountain)
+                const distanceFromCenter = Math.abs(index - centerIndex);
+                cardZIndex = 1000 - (distanceFromCenter * 10);
+              }
             }
             
             // Custom height pattern for all cards with symmetric progression
@@ -337,8 +345,8 @@ export default function DesignSystemIndex() {
               const contentCards = designSystems.filter(s => !s.isEmpty);
               const contentIndex = contentCards.findIndex(s => s.id === system.id);
               
-              // Full symmetric height progression reduced by ~150px
-              const fullHeightProgression = [470, 516, 573, 628, 680, 628, 573, 516, 470];
+              // Full height progression with center card at 704px
+              const fullHeightProgression = [470, 516, 573, 628, 704, 628, 573, 516, 470];
               
               cardHeightPx = fullHeightProgression[contentIndex];
             }
@@ -382,7 +390,7 @@ export default function DesignSystemIndex() {
 
                   {/* Content - only show for non-empty cards */}
                   {!system.isEmpty && (
-                  <div className="text-left h-full flex flex-col justify-between">
+                  <div className={`h-full flex flex-col justify-between ${focusedCard === index ? 'text-left' : (index > centerIndex ? 'text-right' : 'text-left')}`}>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-3">
                         {system.name}
@@ -393,7 +401,7 @@ export default function DesignSystemIndex() {
                       </p>
 
                       {/* Features */}
-                      <div className="flex flex-wrap justify-start gap-1 mb-4 opacity-70 transition-opacity duration-300"
+                      <div className={`flex flex-wrap gap-1 mb-4 opacity-70 transition-opacity duration-300 ${focusedCard === index ? 'justify-start' : (index > centerIndex ? 'justify-end' : 'justify-start')}`}
                            style={{ opacity: focusedCard === index ? 1 : 0.7 }}>
                         {system.features.map((feature, featureIndex) => (
                           <span
