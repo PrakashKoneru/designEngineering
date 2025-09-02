@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   return (
@@ -7,9 +8,11 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/healthcare" className="flex items-center hover:opacity-80 transition-opacity">
-            <img 
+            <Image 
               src="/healthcare/logos/nova-health-logo.svg"
               alt="Nova Health - Healthcare Platform"
+              width={200}
+              height={48}
               className="h-12 w-auto"
               style={{ 
                 filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',

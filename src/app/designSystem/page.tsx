@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import Link from 'next/link';
 
 export default function DesignSystemIndex() {
   const [focusedCard, setFocusedCard] = useState<number | null>(null);
@@ -288,7 +287,7 @@ export default function DesignSystemIndex() {
             
             // Pull center cards down to create natural arc (like holding cards)
             const centerOffset = (maxDistance - distanceFromMiddle) * 40; // Center cards go much lower
-            let y = baseY + centerOffset + 300; // Push all cards down by 300px so buttons are completely hidden
+            const y = baseY + centerOffset + 300; // Push all cards down by 300px so buttons are completely hidden
             
             // Remove special adjustment - let middle card align with natural spread
             // All cards now follow the same positioning flow
