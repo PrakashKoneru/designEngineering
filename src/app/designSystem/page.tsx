@@ -269,9 +269,9 @@ export default function DesignSystemIndex() {
           {designSystems.map((system, index) => {
             const totalCards = designSystems.length;
             
-            // Complete semicircle positioning - rotated 90° left
-            const radius = 150; // Smaller radius for tighter deck
-            const angleSpread = 180; // Full semicircle for complete deck
+            // Semicircle spread out with maximum radius
+            const radius = 500; // Maximum radius for extreme spread
+            const angleSpread = 180; // True semicircle
             const startAngle = -angleSpread / 2 - 90; // Start angle rotated 90° left
             const angleStep = angleSpread / (totalCards - 1); // Angle between cards
             const currentAngle = startAngle + (index * angleStep);
@@ -288,24 +288,60 @@ export default function DesignSystemIndex() {
             
             // Pull center cards down to create natural arc (like holding cards)
             const centerOffset = (maxDistance - distanceFromMiddle) * 40; // Center cards go much lower
-            let y = baseY + centerOffset; // Positive because we want center cards down
+            let y = baseY + centerOffset + 300; // Push all cards down by 300px so buttons are completely hidden
             
-            // Special adjustment: move ONLY center cards (highest z-index) down a bit
-            const isCenterCard = distanceFromMiddle <= 0.5; // Cards 3 & 4 are center (highest z-index)
-            if (isCenterCard) {
-              y = y - 50; // Move center cards up less (30px down from previous position)
+            // Remove special adjustment - let middle card align with natural spread
+            // All cards now follow the same positioning flow
+            
+            // Symmetric rotation for mirror effect
+            // Cards tilt based on distance from center, not absolute angle
+            const maxTilt = 15; // Maximum tilt in degrees
+            const tiltDirection = index < middleIndex ? -1 : 1; // Left negative, right positive
+            const cardRotation = (distanceFromMiddle / maxDistance) * maxTilt * tiltDirection;
+            
+            // Z-index flows linearly, but empty cards always stay below real cards
+            // Right empty cards (index 18+) have reverse flow
+            let cardZIndex;
+            if (system.isEmpty) {
+              if (index >= 18) {
+                // Right empty cards: reverse flow (high to low)
+                cardZIndex = (totalCards - index) * 5;
+              } else {
+                // Left empty cards: normal flow (low to high)
+                cardZIndex = index * 5;
+              }
+            } else {
+              // Content cards: highest z-index with linear flow
+              cardZIndex = (index * 10) + 500;
             }
             
-            // Rotate cards to face outward for readability
-            const cardRotation = currentAngle + 90; // Face outward from center
+            // Custom height pattern for all cards with symmetric progression
+            let cardHeightPx;
             
-            // Z-index highest at center (inverted V-shape)
-            const cardZIndex = Math.round((maxDistance - distanceFromMiddle) * 10);
-            
-            // Make all cards different heights based on position
-            const baseHeight = 350; // Base height in pixels
-            const heightVariation = (maxDistance - distanceFromMiddle) * 30; // Height increases toward center
-            const cardHeightPx = Math.round(baseHeight + heightVariation);
+            if (system.isEmpty) {
+              // Empty cards: create flow toward/away from content cards (very reduced heights)
+              if (index < 9) {
+                // Left empty cards (0-8): increase toward content cards
+                // Heights reduced by ~150px: 200, 250, 300, 350, 370, 390, 410, 430, 450
+                const leftHeights = [200, 250, 300, 350, 370, 390, 410, 430, 450];
+                cardHeightPx = leftHeights[index];
+              } else {
+                // Right empty cards (18-26): decrease away from content cards
+                // Heights reduced by ~150px: 450, 430, 410, 390, 370, 350, 300, 250, 200
+                const rightIndex = index - 18; // Convert to 0-8 range
+                const rightHeights = [450, 430, 410, 390, 370, 350, 300, 250, 200];
+                cardHeightPx = rightHeights[rightIndex];
+              }
+            } else {
+              // Content cards: symmetric height pattern (very reduced heights)
+              const contentCards = designSystems.filter(s => !s.isEmpty);
+              const contentIndex = contentCards.findIndex(s => s.id === system.id);
+              
+              // Full symmetric height progression reduced by ~150px
+              const fullHeightProgression = [470, 516, 573, 628, 680, 628, 573, 516, 470];
+              
+              cardHeightPx = fullHeightProgression[contentIndex];
+            }
             
             return (
               <div key={system.id}>
