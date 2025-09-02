@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Font Comparison: Source Sans Pro vs Nunito Sans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://use.typekit.net/your-kit.css'); /* You'll need Adobe Fonts access for Source Sans Pro */
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e8f5e8 100%);
+            color: #2c5282;
+            font-family: system-ui, sans-serif;
+        }
+        
+        .font-example {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .font-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1e40af;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .font-source {
+            font-size: 14px;
+            background: #3b82f6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .adobe-fallback {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+        }
+        
+        .nunito { font-family: 'Nunito Sans', sans-serif; }
+        
+        .text-showcase {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .heading { 
+            font-size: 32px; 
+            font-weight: 600; 
+            margin-bottom: 8px;
+            color: #1e40af;
+        }
+        
+        .subheading { 
+            font-size: 22px; 
+            font-weight: 500; 
+            margin-bottom: 8px;
+            color: #1e40af;
+        }
+        
+        .body-text { 
+            font-size: 16px; 
+            font-weight: 400; 
+            line-height: 1.7; 
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        
+        .small-text { 
+            font-size: 14px; 
+            font-weight: 400; 
+            color: #6b7280;
+        }
+        
+        .form-example {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .button {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .healthcare-context {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .comparison-point {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .comparison-point h4 {
+            margin: 0 0 10px 0;
+            color: #1e40af;
+            font-weight: 600;
+        }
+        
+        .comparison-point p {
+            margin: 0;
+            color: #475569;
+            line-height: 1.5;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1e40af;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Healthcare Font Comparison</h1>
+    <p class="subtitle">Source Sans Pro vs Nunito Sans</p>
+    
+    <div class="font-example adobe-fallback">
+        <div class="font-name">
+            Source Sans Pro
+            <span class="font-source">Adobe Fonts</span>
+        </div>
+        
+        <div class="text-showcase">
+            <div class="heading">Emergency Care Available 24/7</div>
+            <div class="subheading">Dr. Sarah Johnson, Chief of Cardiology</div>
+            <div class="body-text">Our comprehensive cardiology department offers state-of-the-art diagnostic equipment and treatment options. We specialize in preventive care, interventional procedures, and cardiac rehabilitation programs designed to improve patient outcomes.</div>
+            <div class="small-text">Next Available Appointment: Tomorrow at 2:30 PM</div>
+        </div>
+
+        <div class="form-example">
+            <label class="form-label">Patient Name</label>
+            <input type="text" class="form-input adobe-fallback" placeholder="Enter your full name">
+            
+            <label class="form-label">Medical Record Number</label>
+            <input type="text" class="form-input adobe-fallback" placeholder="MRN-123456789">
+            
+            <button class="button adobe-fallback">Schedule Appointment</button>
+        </div>
+        
+        <div class="healthcare-context">
+            <strong>Healthcare Benefits:</strong> Adobe's flagship professional font. Clean, trustworthy, and highly readable. Used by major medical institutions worldwide. Excellent for forms, data, and professional medical documentation.
+        </div>
+    </div>
+
+    <div class="font-example nunito">
+        <div class="font-name">
+            Nunito Sans
+            <span class="font-source">Google Fonts - FREE</span>
+        </div>
+        
+        <div class="text-showcase">
+            <div class="heading">Emergency Care Available 24/7</div>
+            <div class="subheading">Dr. Sarah Johnson, Chief of Cardiology</div>
+            <div class="body-text">Our comprehensive cardiology department offers state-of-the-art diagnostic equipment and treatment options. We specialize in preventive care, interventional procedures, and cardiac rehabilitation programs designed to improve patient outcomes.</div>
+            <div class="small-text">Next Available Appointment: Tomorrow at 2:30 PM</div>
+        </div>
+
+        <div class="form-example">
+            <label class="form-label">Patient Name</label>
+            <input type="text" class="form-input nunito" placeholder="Enter your full name">
+            
+            <label class="form-label">Medical Record Number</label>
+            <input type="text" class="form-input nunito" placeholder="MRN-123456789">
+            
+            <button class="button nunito">Schedule Appointment</button>
+        </div>
+        
+        <div class="healthcare-context">
+            <strong>Healthcare Benefits:</strong> Rounded, friendly design that feels approachable and warm. Excellent for patient-facing interfaces, reduces anxiety while maintaining professionalism. Great readability and free to use.
+        </div>
+    </div>
+
+    <div style="background: white; padding: 40px; border-radius: 16px; margin-top: 40px; box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);">
+        <h2 style="color: #1e40af; margin-bottom: 30px; text-align: center; font-family: 'Nunito Sans', sans-serif;">Head-to-Head Comparison</h2>
+        
+        <div class="comparison-grid">
+            <div class="comparison-point">
+                <h4>Source Sans Pro</h4>
+                <p><strong>Pros:</strong> Industry standard, highly professional, excellent readability, trusted by medical institutions</p>
+                <p><strong>Cons:</strong> Requires Adobe Fonts subscription, can feel slightly cold</p>
+            </div>
+            
+            <div class="comparison-point">
+                <h4>Nunito Sans</h4>
+                <p><strong>Pros:</strong> Free, warm & approachable, reduces patient anxiety, modern rounded design</p>
+                <p><strong>Cons:</strong> May be too casual for some medical contexts, newer font with less institutional adoption</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding: 25px; background: #f0f8ff; border-radius: 12px; border: 2px solid #3b82f6;">
+            <h3 style="color: #1e40af; margin-bottom: 15px; font-family: 'Nunito Sans', sans-serif;">My Recommendation</h3>
+            <p style="font-size: 18px; color: #374151; margin: 0; font-family: 'Nunito Sans', sans-serif;">
+                <strong>Nunito Sans</strong> for patient-facing areas (forms, appointments, general info)<br>
+                <strong>Source Sans Pro</strong> for clinical/administrative areas (charts, data, professional docs)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

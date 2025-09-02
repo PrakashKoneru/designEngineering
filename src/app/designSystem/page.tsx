@@ -87,7 +87,7 @@ export default function DesignSystemIndex() {
       id: 1,
       name: "Healthcare Trust",
       description: "Refined minimalist design applied to healthcare - trustworthy, accessible, and clean",
-      route: "/healthcare",
+      route: "/healthcare/designsystem",
       features: ["Trustworthy", "Accessible", "Refined"],
       status: "Complete"
     },
